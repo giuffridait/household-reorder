@@ -1,0 +1,28 @@
+{
+  "name": "household-reorder",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "15.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "better-sqlite3": "^9.6.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/uuid": "^9.0.8",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5"
+  }
+}
