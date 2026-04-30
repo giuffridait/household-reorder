@@ -23,12 +23,12 @@ type Props = {
 };
 
 const CATEGORIES: { value: Category; label: string }[] = [
-  { value: 'baby', label: '👶 Baby' },
-  { value: 'dog', label: '🐕 Dog' },
-  { value: 'food', label: '🥣 Food' },
-  { value: 'cleaning', label: '🧹 Cleaning' },
-  { value: 'personal_care', label: '🧴 Personal care' },
-  { value: 'other', label: '📦 Other' },
+  { value: 'baby', label: '\u{1F476} Baby' },
+  { value: 'dog', label: '\u{1F415} Dog' },
+  { value: 'food', label: '\u{1F963} Food' },
+  { value: 'cleaning', label: '\u{1F9F9} Cleaning' },
+  { value: 'personal_care', label: '\u{1F9F4} Personal care' },
+  { value: 'other', label: '\u{1F4E6} Other' },
 ];
 
 export default function ItemFormModal({ item, onClose, onSave }: Props) {
@@ -118,122 +118,45 @@ export default function ItemFormModal({ item, onClose, onSave }: Props) {
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <Field label="Name *">
-            <input
-              type="text"
-              value={form.name}
-              onChange={set('name')}
-              placeholder="e.g. Diapers"
-              className={INPUT_CLASS}
-              autoFocus
-            />
+            <input type="text" value={form.name} onChange={set('name')} placeholder="e.g. Diapers" className={INPUT_CLASS} autoFocus />
           </Field>
-
           <Field label="Category">
             <select value={form.category} onChange={set('category')} className={INPUT_CLASS}>
-              {CATEGORIES.map((c) => (
-                <option key={c.value} value={c.value}>{c.label}</option>
-              ))}
+              {CATEGORIES.map((c) => (<option key={c.value} value={c.value}>{c.label}</option>))}
             </select>
           </Field>
-
           <div className="grid grid-cols-2 gap-3">
             <Field label="Reorder every (days)">
-              <input
-                type="number"
-                min={1}
-                value={form.reorder_interval_days}
-                onChange={set('reorder_interval_days')}
-                placeholder="14"
-                className={INPUT_CLASS}
-              />
+              <input type="number" min={1} value={form.reorder_interval_days} onChange={set('reorder_interval_days')} placeholder="14" className={INPUT_CLASS} />
             </Field>
             <Field label="Buffer days">
-              <input
-                type="number"
-                min={0}
-                value={form.buffer_days}
-                onChange={set('buffer_days')}
-                placeholder="3"
-                className={INPUT_CLASS}
-              />
+              <input type="number" min={0} value={form.buffer_days} onChange={set('buffer_days')} placeholder="3" className={INPUT_CLASS} />
             </Field>
           </div>
-
           <Field label="Last ordered date">
-            <input
-              type="date"
-              value={form.last_ordered_at}
-              onChange={set('last_ordered_at')}
-              className={INPUT_CLASS}
-            />
+            <input type="date" value={form.last_ordered_at} onChange={set('last_ordered_at')} className={INPUT_CLASS} />
           </Field>
-
           <Field label="Preferred store">
-            <input
-              type="text"
-              value={form.preferred_store}
-              onChange={set('preferred_store')}
-              placeholder="e.g. Amazon, DM, REWE"
-              className={INPUT_CLASS}
-            />
+            <input type="text" value={form.preferred_store} onChange={set('preferred_store')} placeholder="e.g. Amazon, DM, REWE" className={INPUT_CLASS} />
           </Field>
-
           <div className="grid grid-cols-2 gap-3">
             <Field label="Brand">
-              <input
-                type="text"
-                value={form.preferred_brand}
-                onChange={set('preferred_brand')}
-                placeholder="Optional"
-                className={INPUT_CLASS}
-              />
+              <input type="text" value={form.preferred_brand} onChange={set('preferred_brand')} placeholder="Optional" className={INPUT_CLASS} />
             </Field>
             <Field label="Size / variant">
-              <input
-                type="text"
-                value={form.preferred_variant}
-                onChange={set('preferred_variant')}
-                placeholder="Optional"
-                className={INPUT_CLASS}
-              />
+              <input type="text" value={form.preferred_variant} onChange={set('preferred_variant')} placeholder="Optional" className={INPUT_CLASS} />
             </Field>
           </div>
-
           <Field label="Reorder URL">
-            <input
-              type="url"
-              value={form.reorder_url}
-              onChange={set('reorder_url')}
-              placeholder="https://..."
-              className={INPUT_CLASS}
-            />
+            <input type="url" value={form.reorder_url} onChange={set('reorder_url')} placeholder="https://..." className={INPUT_CLASS} />
           </Field>
-
           <Field label="Notes">
-            <textarea
-              value={form.agent_notes}
-              onChange={set('agent_notes')}
-              placeholder="Any notes…"
-              rows={2}
-              className={INPUT_CLASS}
-            />
+            <textarea value={form.agent_notes} onChange={set('agent_notes')} placeholder="Any notes…" rows={2} className={INPUT_CLASS} />
           </Field>
-
           {error && <p className="text-sm text-rose-600">{error}</p>}
-
           <div className="flex gap-3 pt-2">
-            <button
-              type="button"
-              onClick={onClose}
-              className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={saving}
-              className="flex-1 px-4 py-2.5 rounded-xl bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 disabled:opacity-50 transition-colors"
-            >
+            <button type="button" onClick={onClose} className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">Cancel</button>
+            <button type="submit" disabled={saving} className="flex-1 px-4 py-2.5 rounded-xl bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 disabled:opacity-50 transition-colors">
               {saving ? 'Saving…' : isEdit ? 'Save changes' : 'Add item'}
             </button>
           </div>
@@ -252,5 +175,4 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-const INPUT_CLASS =
-  'w-full px-3 py-2 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 bg-white';
+const INPUT_CLASS = 'w-full px-3 py-2 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 bg-white';

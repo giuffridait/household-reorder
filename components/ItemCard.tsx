@@ -10,12 +10,12 @@ type Props = {
 };
 
 const CATEGORY_EMOJI: Record<string, string> = {
-  baby: '👶',
-  dog: '🐕',
-  food: '🥣',
-  cleaning: '🧹',
-  personal_care: '🧴',
-  other: '📦',
+  baby: '\u{1F476}',
+  dog: '\u{1F415}',
+  food: '\u{1F963}',
+  cleaning: '\u{1F9F9}',
+  personal_care: '\u{1F9F4}',
+  other: '\u{1F4E6}',
 };
 
 const CONFIDENCE_COLOR: Record<string, string> = {
@@ -27,7 +27,7 @@ const CONFIDENCE_COLOR: Record<string, string> = {
 export default function ItemCard({ item, onMarkOrdered, onEdit, onTogglePause }: Props) {
   const rec = item.recommendation;
   const isPaused = item.status === 'paused';
-  const emoji = CATEGORY_EMOJI[item.category] ?? '📦';
+  const emoji = CATEGORY_EMOJI[item.category] ?? '\u{1F4E6}';
 
   const nextRunout = item.last_ordered_at && item.reorder_interval_days
     ? formatRunoutDate(item.last_ordered_at, item.reorder_interval_days)

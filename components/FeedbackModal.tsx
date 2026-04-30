@@ -28,13 +28,13 @@ export default function FeedbackModal({ item, onClose, onSubmit }: Props) {
             onClick={() => onSubmit('as_expected')}
           />
           <FeedbackButton
-            emoji="🏃"
+            emoji="\u{1F3C3}"
             label="Ran out early"
             description={`Reorder cycle will shorten by 2 days (${item.reorder_interval_days ? item.reorder_interval_days - 2 : '?'} days)`}
             onClick={() => onSubmit('ran_out_early')}
           />
           <FeedbackButton
-            emoji="📦"
+            emoji="\u{1F4E6}"
             label="Had plenty left"
             description={`Reorder cycle will extend by 3 days (${item.reorder_interval_days ? item.reorder_interval_days + 3 : '?'} days)`}
             onClick={() => onSubmit('had_plenty_left')}
