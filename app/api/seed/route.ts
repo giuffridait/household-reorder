@@ -16,7 +16,7 @@ const SEED_ITEMS = [
     preferred_store: 'DM',
     reorder_interval_days: 14,
     buffer_days: 3,
-    last_ordered_at_offset: 12, // ordered 12 days ago → buffer hit 1 day ago → BUY NOW
+    last_ordered_at_offset: 12,
   },
   {
     name: 'Dog food',
@@ -24,7 +24,7 @@ const SEED_ITEMS = [
     preferred_store: 'Amazon',
     reorder_interval_days: 28,
     buffer_days: 5,
-    last_ordered_at_offset: 25, // ordered 25 days ago → buffer hit 2 days ago → BUY NOW
+    last_ordered_at_offset: 25,
   },
   {
     name: 'Oats',
@@ -32,7 +32,7 @@ const SEED_ITEMS = [
     preferred_store: 'REWE',
     reorder_interval_days: 21,
     buffer_days: 3,
-    last_ordered_at_offset: 14, // ordered 14 days ago → reorder due in 4 days → BUY THIS WEEK
+    last_ordered_at_offset: 14,
   },
 ] as const;
 
